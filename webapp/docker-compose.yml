@@ -1,9 +1,11 @@
 services:
   nginx:
-    image: nginx:1.22
+    # image: nginx:1.22
+    build: etc/nginx/
     volumes:
       - ./etc/nginx/conf.d:/etc/nginx/conf.d
       - ./public:/public
+      - ./logs/nginx:/var/log/nginx
     ports:
       - "8088:80"
     links:
